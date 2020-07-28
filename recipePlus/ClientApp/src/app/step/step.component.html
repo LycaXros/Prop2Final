@@ -1,0 +1,32 @@
+
+<div>
+    
+  <div> 
+    <span class="title"> Contenido:</span>
+    <input [(ngModel)]="simpleStep.Content" type="text">
+  </div>
+    <button (click)="addStep()" *ngIf='simpleStep.Content'>Nuevo Paso</button>
+</div>
+
+  
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="stepList">
+    <thead>
+      <tr>
+        <th>Step Number</th>
+        <th>Contenido</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let step of stepList; let i = index">
+        <td> {{ step.StepNumber}}</td>
+        <td> {{ step.Content}}</td>
+        <td>
+            <span> 
+                <button (click)='removeStep(i)'>X</button>
+            </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
