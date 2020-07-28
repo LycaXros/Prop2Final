@@ -1,0 +1,30 @@
+<p>recipes works!</p>
+
+
+<p *ngIf="!recipes"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="recipes">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Autor</th>
+      <th>Cantidad de Pasos</th>
+      <th>Cantidad de Ingredientes</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let recipe of recipes">
+      <td>{{ recipe.name }}</td>
+      <td>{{ recipe.authorName }}</td>
+      <td>{{ recipe.stepsCount }}</td>
+      <td>{{ recipe.ingredientsCount }}</td>
+      <td><span class="btn btn-secondary" [routerLink]="['/recipe', recipe.recipeId]"> Detalles </span></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<hr />
+
+<app-step></app-step>

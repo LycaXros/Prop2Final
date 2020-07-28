@@ -1,0 +1,46 @@
+
+<p *ngIf="!Recipe"><em>Loading...</em></p>
+
+<div *ngIf="Recipe">
+    
+  <div class="row">
+    <div class="col-sm">
+    <h1>Receta</h1>
+    <h2>Nombre: {{Recipe.name}} </h2> <br>
+    <h2>Autor: {{Recipe.authorName}} </h2>
+    </div>
+    
+    <div class="col-sm" *ngIf="Recipe.recipeImage">
+    </div>
+  </div>
+  
+  <div class="row">
+    <h3>Contenido</h3>
+    <p> {{Recipe.description}} </p>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+    <h3>Ingredientes</h3>
+    <ul>
+        <li *ngFor="let ing of Recipe.ingredients">
+            {{ing.descripcion}}
+        </li>
+    </ul>
+    </div>
+    
+    <div class="col-sm">
+    <h3>Pasos de Preparacion</h3>
+    <ul style="list-style: none;">    
+        <li *ngFor="let step of Recipe.steps">
+         <strong> ({{step.stepNumber}}) </strong> -->  {{step.content}}
+        </li>
+    </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <span class="btn btn-danger" [routerLink]="['/recipes']"
+    >Volver Atras</span >
+  </div>
+</div>
