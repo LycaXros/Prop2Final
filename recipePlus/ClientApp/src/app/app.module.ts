@@ -12,6 +12,10 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { StepComponent } from './step/step.component';
 import { RecipesDetailComponent } from './recipes-detail/recipes-detail.component';
+import { CocktailsComponent } from './cocktails/cocktails.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { RecipesDetailComponent } from './recipes-detail/recipes-detail.componen
     FetchDataComponent,
     RecipesComponent,
     StepComponent,
-    RecipesDetailComponent
+    RecipesDetailComponent,
+    CocktailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,7 +39,11 @@ import { RecipesDetailComponent } from './recipes-detail/recipes-detail.componen
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'recipes', component: RecipesComponent },
       { path: 'recipe/:id', component: RecipesDetailComponent },
-    ])
+      { path: 'cocktails', component: CocktailsComponent },
+      
+    ]),
+    BrowserAnimationsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

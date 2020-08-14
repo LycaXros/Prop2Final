@@ -1,0 +1,33 @@
+<div class="row">
+  <p>cocktails works!</p>
+  <p>
+    En esta pantalla se veran informacion sobre bebidas, traidas a traves de una
+    api Externa.
+  </p>
+</div>
+<div class="row">
+  <p>Dicha API tiene una home Page.</p>
+  <a href="https://www.thecocktaildb.com/"> The CocktailDB </a>
+</div>
+<div class="row" *ngIf="categories">
+  <select name="Categories" [ngModel]="selectedCategories" (ngModelChange)="onChange($event)" >
+    <option value="" disabled selected>Eliga una Categoria</option>
+    <option *ngFor="let c of categories" [ngValue]="c"> {{ c }} </option>
+  </select>
+  &nbsp;
+    <span class="btn btn-primary" (click)="ShowSelected()" *ngIf="selectedCategories">Send</span>
+</div>
+<div class="row" *ngIf="drinks">
+  <div
+    class="col-sm-6 col-md-4 col-lg-3"
+    *ngFor="let d of drinks"
+    style="margin: 10px 0;"
+  >
+    <strong>Name: </strong>
+    <span style="font-size: larger;">
+      <em>{{ d.strDrink }} </em></span
+    >
+    <br />
+    <img src="{{ d.strDrinkThumb }}/preview" alt="{{ d.idDrink }}" />
+  </div>
+</div>
